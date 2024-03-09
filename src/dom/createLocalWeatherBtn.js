@@ -1,10 +1,10 @@
 import handleCoords from "../handleCoords";
 
 export default function createLocalWeatherBtn() {
-  const content = document.querySelector("#content");
+  const searhBarContainer = document.querySelector(".searchBarContainer");
 
   const btnContainer = document.createElement("div");
-  content.appendChild(btnContainer);
+  searhBarContainer.appendChild(btnContainer);
 
   const localWeatherBtn = document.createElement("button");
   localWeatherBtn.id = "localWeatherBtn";
