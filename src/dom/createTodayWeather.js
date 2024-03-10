@@ -1,10 +1,3 @@
-function createContainer(containerClass, containerParent) {
-  const container = document.createElement("div");
-  container.classList.add(containerClass);
-  containerParent.appendChild(container);
-  return container;
-}
-
 function createElement(elementClass, elementParent) {
   const newElement = document.createElement("div");
   newElement.classList.add(elementClass);
@@ -19,7 +12,7 @@ export default function createTodayWeather() {
   weatherCardContainer.classList.add("weatherCardContainer");
   content.appendChild(weatherCardContainer);
 
-  const weatherIconContainer = createContainer(
+  const weatherIconContainer = createElement(
     "weatherIconContainer",
     weatherCardContainer,
   );
@@ -29,7 +22,7 @@ export default function createTodayWeather() {
   weatherIcon.alt = "weather icon";
   weatherIconContainer.appendChild(weatherIcon);
 
-  const weatherDescriptionContainer = createContainer(
+  const weatherDescriptionContainer = createElement(
     "weatherDescriptionContainer",
     weatherCardContainer,
   );
@@ -46,4 +39,15 @@ export default function createTodayWeather() {
   );
   const feelsLike = createElement("feelsLike", weatherDescriptionContainer);
   feelsLike.textContent = "Feels like:";
+
+  const suppInfoContainer = createElement(
+    "suppInfoContainer",
+    weatherCardContainer,
+  );
+
+  const humidity = createElement("humidity", suppInfoContainer);
+  humidity.textContent = "Humidity:";
+
+  const wind = createElement("wind", suppInfoContainer);
+  wind.textContent = "Wind:";
 }

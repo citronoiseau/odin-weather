@@ -19,7 +19,10 @@ export default function updateDOM(weatherData) {
   const newFeelsLike = isCelcius
     ? `${Math.floor(weatherData.current.feelslike_c)}℃`
     : `${Math.floor(weatherData.current.feelslike_f)}℉`;
-
+  const newHumidity = weatherData.current.humidity;
+  const newWind = isCelcius
+    ? `${Math.floor(weatherData.current.wind_kph)} km/h`
+    : `${Math.floor(weatherData.current.wind_mph)} mp/h`;
   const icon = document.querySelector(".currentWeatherIcon");
   icon.src = newIcon;
 
@@ -39,5 +42,11 @@ export default function updateDOM(weatherData) {
   currentCondition.textContent = newCondition;
 
   const feelsLike = document.querySelector(".feelsLike");
-  feelsLike.textContent = newFeelsLike;
+  feelsLike.textContent = `Feels like: ${newFeelsLike}`;
+
+  const humidity = document.querySelector(".humidity");
+  humidity.textContent = `Humidity: ${newHumidity}%`;
+
+  const wind = document.querySelector(".wind");
+  wind.textContent = `Wind: ${newWind}`;
 }

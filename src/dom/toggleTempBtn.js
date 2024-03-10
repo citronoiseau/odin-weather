@@ -2,11 +2,11 @@ import tempUnits from "../tempUnits";
 import getWeather from "../getWeather";
 
 export default function toggleTempUnits() {
-  const content = document.querySelector("#content");
+  const searhBarContainer = document.querySelector(".searchBarContainer");
 
   const toggleTempContainer = document.createElement("div");
   toggleTempContainer.classList.add("toggleTempContainer");
-  content.appendChild(toggleTempContainer);
+  searhBarContainer.appendChild(toggleTempContainer);
 
   const toggleTempBtn = document.createElement("button");
   toggleTempBtn.textContent = "Toggle ℃/℉";
