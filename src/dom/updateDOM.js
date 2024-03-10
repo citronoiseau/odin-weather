@@ -1,22 +1,24 @@
 import tempUnits from "../tempUnits";
+import { fillForecast } from "./createForecast";
 
 export default function updateDOM(weatherData) {
+  fillForecast(weatherData.forecast);
   const isCelcius = tempUnits.getTempStatus();
   const newIcon = weatherData.current.condition.icon;
   const newCity = weatherData.location.name;
   const newCurrentTemp = isCelcius
-    ? `${Math.round(weatherData.current.temp_c)}℃`
-    : `${Math.round(weatherData.current.temp_f)}℉`;
+    ? `${Math.floor(weatherData.current.temp_c)}℃`
+    : `${Math.floor(weatherData.current.temp_f)}℉`;
   const newCurrentMaxTemp = isCelcius
-    ? `${Math.round(weatherData.forecast.forecastday[0].day.maxtemp_c)}℃`
-    : `${Math.round(weatherData.forecast.forecastday[0].day.maxtemp_f)}℉`;
+    ? `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_c)}℃`
+    : `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_f)}℉`;
   const newCurrentMinTemp = isCelcius
-    ? `${weatherData.forecast.forecastday[0].day.mintemp_c}℃`
-    : `${weatherData.forecast.forecastday[0].day.mintemp_f}℉`;
+    ? `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_c)}℃`
+    : `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_f)}℉`;
   const newCondition = weatherData.current.condition.text;
   const newFeelsLike = isCelcius
-    ? `${weatherData.current.feelslike_c}℃`
-    : `${weatherData.current.feelslike_f}℉`;
+    ? `${Math.floor(weatherData.current.feelslike_c)}℃`
+    : `${Math.floor(weatherData.current.feelslike_f)}℉`;
 
   const icon = document.querySelector(".currentWeatherIcon");
   icon.src = newIcon;
