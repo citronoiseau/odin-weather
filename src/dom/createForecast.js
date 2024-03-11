@@ -2,8 +2,21 @@ import tempUnits from "../tempUnits";
 
 function formatDay(time) {
   const date = new Date(time);
+  const today = new Date();
   const day = date.getDay();
-  const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  if (date.toDateString() === today.toDateString()) {
+    return "Today";
+  }
   return days[day];
 }
 

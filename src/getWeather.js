@@ -5,7 +5,7 @@ export default async function getWeather(city) {
   const checkCity = city || lastCity;
   try {
     const response = await fetch(
-      `http://api.weatherapi.com/v1/forecast.json?key=db7ac4296d854558ab2174921240503&q=${checkCity}&days=3`,
+      `https://api.weatherapi.com/v1/forecast.json?key=db7ac4296d854558ab2174921240503&q=${checkCity}&days=3`,
       { mode: "cors" },
     );
     if (response.status === 400) {
