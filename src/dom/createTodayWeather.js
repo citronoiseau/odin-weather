@@ -6,47 +6,52 @@ function createElement(elementClass, elementParent) {
 }
 
 export default function createTodayWeather() {
-  const main = document.querySelector("#main");
+  const forecast = document.querySelector("#forecastContainer");
 
-  const weatherCardContainer = document.createElement("div");
-  weatherCardContainer.classList.add("weatherCardContainer");
-  main.appendChild(weatherCardContainer);
+  const weatherCardContainer = createElement("weatherCardContainer", forecast);
 
-  const nowDiv = createElement("nowWeatherPhrase", weatherCardContainer);
-  nowDiv.textContent = "Now";
+  const city = createElement("city", weatherCardContainer);
+  city.textContent = "Now in";
+
+  const mainInfoContainer = createElement(
+    "mainInfoContainer",
+    weatherCardContainer,
+  );
+  const tempIconContainer = createElement(
+    "tempIconContainer",
+    mainInfoContainer,
+  );
+  const wrapperTempIcon = createElement("wrapperTempIcon", tempIconContainer);
+  const temp = createElement("currentTemp", wrapperTempIcon);
 
   const weatherIconContainer = createElement(
     "weatherIconContainer",
-    weatherCardContainer,
+    wrapperTempIcon,
   );
-
   const weatherIcon = document.createElement("img");
   weatherIcon.classList.add("currentWeatherIcon");
   weatherIcon.alt = "weather icon";
   weatherIconContainer.appendChild(weatherIcon);
 
-  const weatherDescriptionContainer = createElement(
-    "weatherDescriptionContainer",
-    weatherCardContainer,
+  const conditionFeelsLikeContainer = createElement(
+    "conditionFeelsLikeContainer",
+    mainInfoContainer,
   );
-
-  const city = createElement("city", weatherDescriptionContainer);
-  const temp = createElement("currentTemp", weatherDescriptionContainer);
-  const maxTemp = createElement("currentMaxTemp", weatherDescriptionContainer);
-  maxTemp.textContent = "High:";
-  const minTemp = createElement("currentMinTemp", weatherDescriptionContainer);
-  minTemp.textContent = "Low:";
   const condition = createElement(
     "currentCondition",
-    weatherDescriptionContainer,
+    conditionFeelsLikeContainer,
   );
-  const feelsLike = createElement("feelsLike", weatherDescriptionContainer);
+  const feelsLike = createElement("feelsLike", conditionFeelsLikeContainer);
   feelsLike.textContent = "Feels like:";
+
+  const minMaxTemp = createElement("currentMinMax", tempIconContainer);
 
   const suppInfoContainer = createElement(
     "suppInfoContainer",
     weatherCardContainer,
   );
+  const suppInfoPhrase = createElement("suppInfoPhrase", suppInfoContainer);
+  suppInfoPhrase.textContent = "Current conditions:";
 
   const humidity = createElement("humidity", suppInfoContainer);
   humidity.textContent = "Humidity:";

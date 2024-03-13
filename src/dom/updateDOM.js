@@ -28,16 +28,13 @@ export default function updateDOM(weatherData) {
   icon.src = newIcon;
 
   const city = document.querySelector(".city");
-  city.textContent = newCity;
+  city.textContent = `Now in ${newCity}`;
 
   const currentTemp = document.querySelector(".currentTemp");
   currentTemp.textContent = newCurrentTemp;
 
-  const currentMaxTemp = document.querySelector(".currentMaxTemp");
-  currentMaxTemp.textContent = `High: ${newCurrentMaxTemp}`;
-
-  const currentMinTemp = document.querySelector(".currentMinTemp");
-  currentMinTemp.textContent = `Low: ${newCurrentMinTemp}`;
+  const currentMinMax = document.querySelector(".currentMinMax");
+  currentMinMax.textContent = `High: ${newCurrentMaxTemp} • Low: ${newCurrentMinTemp}`;
 
   const currentCondition = document.querySelector(".currentCondition");
   currentCondition.textContent = newCondition;

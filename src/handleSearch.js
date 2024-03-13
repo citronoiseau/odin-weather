@@ -1,5 +1,4 @@
 import getWeather from "./getWeather";
-import { setLastCity } from "./localStorage";
 
 export default function handleSearch(event) {
   event.preventDefault();
@@ -9,6 +8,5 @@ export default function handleSearch(event) {
     alert("Enter something!🙄");
     return false;
   }
-  setLastCity(input);
   getWeather(input);
 }

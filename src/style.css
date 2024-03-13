@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Slackside+One&display=swap");
 
 * {
   margin: 0;
@@ -7,20 +7,31 @@
 }
 
 #content {
-  background-color: #cee3f6;
+  background-image: url(icons/cloudPattern.jpg);
+  background-size: contain;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 #content,
 ::-webkit-input-placeholder,
 input {
   font-family: "Inria Sans", sans-serif;
   font-weight: 400;
-  font-size: 1rem;
+}
+::-webkit-input-placeholder,
+input {
+  color: #ecf6ff;
+  font-size: 1.1rem;
 }
 #main {
   background-color: #ecf6ff;
-  padding: 20px;
+  opacity: 90%;
+  padding: 20px 40px;
   margin: 0px 30px 0px 30px;
   border-radius: 15px;
+  color: #355070;
 }
 .searchBarContainer {
   display: flex;
@@ -44,6 +55,7 @@ input {
   height: 100%;
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   transition: all 0.3s ease-in-out;
+  background-color: #738cbc;
 }
 #searchInput:hover {
   box-shadow:
@@ -70,7 +82,7 @@ input {
 }
 #localWeatherBtn {
   right: 20px;
-  top: 7px;
+  top: 6px;
 }
 #submitBtn img,
 #localWeatherBtn img {
@@ -78,7 +90,7 @@ input {
   height: auto;
 }
 #toggleTempBtn {
-  background: #fbfdff;
+  background: #738cbc;
   border-radius: 20px;
   padding: 10px;
   border: none;
@@ -86,9 +98,113 @@ input {
   box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   transition: all 0.3s ease-in-out;
   font-size: 1rem;
-  color: #757575;
+  color: #ecf6ff;
   font-weight: 700;
 }
 .toggleTemp.active {
-  color: #0672d8;
+  color: #fcb0b3;
+}
+#logoName {
+  font-size: 2.5rem;
+  font-family: "Slackside One", cursive;
+}
+
+#forecastContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "todayForecast generalForecast";
+  gap: 20px;
+}
+.weatherCardContainer {
+  font-size: 1.1rem;
+  grid-area: todayForecast;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.weatherCardContainer .city,
+.mainInfoContainer .feelsLike,
+.currentMinMax,
+.forecastPhrase {
+  font-size: 1rem;
+  color: rgb(121, 139, 177);
+}
+.mainInfoContainer {
+  display: flex;
+  gap: 70px;
+  align-items: center;
+}
+.wrapperTempIcon {
+  display: flex;
+  align-items: flex-end;
+}
+.wrapperTempIcon .currentTemp {
+  font-size: 6rem;
+}
+.suppInfoContainer {
+  background-color: #738cbc;
+  border-radius: 15px;
+  color: #ecf6ff;
+  padding: 10px;
+  max-width: 350px;
+}
+.forecastContainer {
+  grid-area: generalForecast;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.threeDayForecast {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.forecastDayContainer {
+  display: flex;
+  justify-content: space-between;
+  background-color: #738cbc;
+  border-radius: 15px;
+  color: #ecf6ff;
+  padding: 10px;
+  align-items: center;
+}
+.forecastDayContainer .forecastDay {
+  min-width: 60px;
+}
+.iconContainer {
+  align-self: center;
+}
+.forecastDayContainer .iconContainer img {
+  width: 45px;
+  height: 40px;
+}
+#footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+}
+#footer div {
+  background-color: #738cbc;
+  opacity: 90%;
+  padding: 10px 30px;
+  border-radius: 15px;
+  color: #ecf6ff;
+}
+#footer a {
+  color: #ecf6ff;
+}
+@media (max-width: 800px) {
+  #main {
+    margin: 10px;
+    padding: 10px 20px;
+  }
+  .mainInfoContainer {
+    justify-content: center;
+  }
+  #forecastContainer {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "todayForecast"
+      "generalForecast";
+  }
 }

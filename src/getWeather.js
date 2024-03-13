@@ -1,4 +1,5 @@
 import updateDOM from "./dom/updateDOM";
+import { setLastCity } from "./localStorage";
 
 let lastCity = "";
 export default async function getWeather(city) {
@@ -13,8 +14,8 @@ export default async function getWeather(city) {
       return;
     }
     const weatherData = await response.json();
-    console.log(weatherData);
     lastCity = weatherData.location.name;
+    setLastCity(lastCity);
     updateDOM(weatherData);
   } catch (error) {
     console.log("An error occurred while fetching weather data:", error);
