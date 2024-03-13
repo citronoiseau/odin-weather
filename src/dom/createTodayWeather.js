@@ -6,11 +6,14 @@ function createElement(elementClass, elementParent) {
 }
 
 export default function createTodayWeather() {
-  const content = document.querySelector("#content");
+  const main = document.querySelector("#main");
 
   const weatherCardContainer = document.createElement("div");
   weatherCardContainer.classList.add("weatherCardContainer");
-  content.appendChild(weatherCardContainer);
+  main.appendChild(weatherCardContainer);
+
+  const nowDiv = createElement("nowWeatherPhrase", weatherCardContainer);
+  nowDiv.textContent = "Now";
 
   const weatherIconContainer = createElement(
     "weatherIconContainer",

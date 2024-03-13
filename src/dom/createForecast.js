@@ -21,11 +21,11 @@ function formatDay(time) {
 }
 
 export function createForecastDOM() {
-  const content = document.querySelector("#content");
+  const main = document.querySelector("#main");
 
   const forecastContainer = document.createElement("div");
   forecastContainer.classList.add("forecastContainer");
-  content.appendChild(forecastContainer);
+  main.appendChild(forecastContainer);
 }
 
 function createElement(elementClass, elementParent) {

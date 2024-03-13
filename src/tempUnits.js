@@ -1,10 +1,13 @@
+import { saveTempUnits, getSavedTempUnits } from "./localStorage";
+
 class Temperature {
-  constructor(isCelcius = true) {
-    this.isCelcius = isCelcius;
+  constructor(status) {
+    this.isCelcius = status;
   }
 
   toggleTemp() {
     this.isCelcius = !this.isCelcius;
+    saveTempUnits(this.isCelcius);
   }
 
   getTempStatus() {
@@ -12,6 +15,6 @@ class Temperature {
   }
 }
 
-const tempUnits = new Temperature();
+const tempUnits = new Temperature(getSavedTempUnits());
 
 export default tempUnits;

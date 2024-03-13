@@ -1,12 +1,12 @@
+import createLayout from "./dom/createLayout";
 import createSearchBar from "./dom/createSearchBar";
-import createLocalWeatherBtn from "./dom/createLocalWeatherBtn";
 import createTodayWeather from "./dom/createTodayWeather";
 import toggleTempUnits from "./dom/toggleTempBtn";
 import { createForecastDOM } from "./dom/createForecast";
 
 export default function pageLoader() {
+  createLayout();
   createSearchBar();
-  createLocalWeatherBtn();
   createTodayWeather();
   toggleTempUnits();
   createForecastDOM();

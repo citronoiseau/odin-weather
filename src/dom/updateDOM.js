@@ -7,22 +7,23 @@ export default function updateDOM(weatherData) {
   const newIcon = weatherData.current.condition.icon;
   const newCity = weatherData.location.name;
   const newCurrentTemp = isCelcius
-    ? `${Math.floor(weatherData.current.temp_c)}℃`
-    : `${Math.floor(weatherData.current.temp_f)}℉`;
+    ? `${Math.floor(weatherData.current.temp_c)}°`
+    : `${Math.floor(weatherData.current.temp_f)}°`;
   const newCurrentMaxTemp = isCelcius
-    ? `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_c)}℃`
-    : `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_f)}℉`;
+    ? `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_c)}°`
+    : `${Math.floor(weatherData.forecast.forecastday[0].day.maxtemp_f)}°`;
   const newCurrentMinTemp = isCelcius
-    ? `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_c)}℃`
-    : `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_f)}℉`;
+    ? `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_c)}°`
+    : `${Math.floor(weatherData.forecast.forecastday[0].day.mintemp_f)}°`;
   const newCondition = weatherData.current.condition.text;
   const newFeelsLike = isCelcius
-    ? `${Math.floor(weatherData.current.feelslike_c)}℃`
-    : `${Math.floor(weatherData.current.feelslike_f)}℉`;
+    ? `${Math.floor(weatherData.current.feelslike_c)}°`
+    : `${Math.floor(weatherData.current.feelslike_f)}°`;
   const newHumidity = weatherData.current.humidity;
   const newWind = isCelcius
     ? `${Math.floor(weatherData.current.wind_kph)} km/h`
     : `${Math.floor(weatherData.current.wind_mph)} mp/h`;
+
   const icon = document.querySelector(".currentWeatherIcon");
   icon.src = newIcon;
 
